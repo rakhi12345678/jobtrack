@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JobTrack — Job Search Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-glow bg-glow-a"></div>
+<div class="bg-glow bg-glow-b"></div>
+
+<div id="app">
+  <div class="topbar">
+    <div class="brand">
+      <div class="mark">JobTrack<span class="dot">.</span></div>
+      <div class="tagline">Your job search, logged in one console.</div>
+    </div>
+    <div class="topbar-actions">
+      <input class="search-box" id="searchBox" type="text" placeholder="Search company or role…" />
+      <button class="btn btn-primary" id="addBtn">+ Log application</button>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div id="boardWrap"></div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Log application</h2>
+    <button class="drawer-close" id="closeDrawer">&times;</button>
+  </div>
+  <div class="drawer-body">
+    <form id="appForm">
+      <div class="fieldset-title">Company & role</div>
+      <div class="field-row">
+        <div class="field"><label for="f-company">Company</label><input id="f-company" required /></div>
+        <div class="field"><label for="f-role">Role</label><input id="f-role" required /></div>
+      </div>
+      <div class="field"><label for="f-jd">Job description</label><textarea id="f-jd" placeholder="Paste key responsibilities, tech stack, etc."></textarea></div>
+
+      <div class="fieldset-title">Status & dates</div>
+      <div class="field"><label for="f-status">Status</label>
+        <select id="f-status">
+          <option value="applied">Applied</option>
+          <option value="assessment">Assessment scheduled</option>
+          <option value="interview">Interview scheduled</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+          <option value="withdrawn">Withdrawn</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="f-applied-date">Applied on</label><input type="date" id="f-applied-date" /></div>
+        <div class="field"><label for="f-followup-date">Follow up on</label><input type="date" id="f-followup-date" /></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="f-assessment-date">Assessment date</label><input type="date" id="f-assessment-date" /></div>
+        <div class="field"><label for="f-interview-date">Interview date</label><input type="date" id="f-interview-date" /></div>
+      </div>
+
+      <div class="fieldset-title">HR contact</div>
+      <div class="field-row">
+        <div class="field"><label for="f-hr-name">HR name</label><input id="f-hr-name" /></div>
+        <div class="field"><label for="f-hr-contact">Email / phone</label><input id="f-hr-contact" /></div>
+      </div>
+
+      <div class="fieldset-title">Notes</div>
+      <div class="field"><textarea id="f-notes" placeholder="Anything you want to remember — referral, interview feedback, salary talk…"></textarea></div>
+    </form>
+  </div>
+  <div class="drawer-footer">
+    <button class="btn btn-danger" id="deleteBtn" style="display:none;">Delete</button>
+    <div class="right">
+      <button class="btn btn-ghost" id="cancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="saveBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
